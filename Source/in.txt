@@ -1,0 +1,22 @@
+// Coge y borra los comentarios del texto
+void DeleteComments::catchAndDelete() {
+  char symbol;    // Simbolo que lee del fichero
+  std::string line; //linea que escribe
+  State prev_state(comment_detector_.getActualState());
+  while (in_file_.get(symbol)) {
+    comment_detector_.recorreDfa(symbol);
+    State actual_state(comment_detector_.getActualState());   // A partir de aqui esta mal
+  /*if (actual_state.getAcceptance()) {
+      if (commentDetected(prev_state, actual_state))
+        line.pop_back();
+    } else {
+      line += symbol;
+    }   
+    if (symbol = '\n'){
+      out_file_ << line;
+      line.clear();
+    }   
+    prev_state = actual_state;
+  }
+}*/
+

@@ -1,3 +1,20 @@
+// Grado en Ingeniería Informática
+// Asignatura: Computabilidad y Algoritmia (CyA)
+// Curso: 2º 
+// Práctica 4 CyA - Borrado de comentarios mediante un dfa 
+// Autor: Christian Jesús Pérez Hernández
+// Correo: alu0101030531@ull.edu.es
+// Fecha: 14/10/2019
+// Archivo dfa.cpp: Define la clase dfa
+//                     
+//                 
+// Referencias: 
+//                    Enunciado de la práctica: https://campusvirtual.ull.es/1920/mod/assign/view.php?id=103940
+// Historial de revisiones
+//                    14/10/2019 - Creación del código
+
+
+
 #include "dfa.h"
 
 #include <stdexcept>
@@ -31,11 +48,13 @@ std::ostream& operator<<(std::ostream& os, const Dfa& obj) {
   return os;
 }
 
+// Recorre el dfa para un simbolo dado
 void Dfa::recorreDfa(char symbol) {
   int id   = dfa_pos_->recorreTransitions(symbol);
   dfa_pos_ = match(id);
 }
 
+// Devuelve un iterador apuntando a un estado del conjunto
 std::set<State>::iterator Dfa::match(int id) {
   std::set<State>::iterator it = states_.begin();
   for (; it != states_.end(); it++) {

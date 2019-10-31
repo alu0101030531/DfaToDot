@@ -1,18 +1,20 @@
-// Grado en Ingeniería Informática
-// Asignatura: Computabilidad y Algoritmia (CyA)
-// Curso: 2º 
-// Práctica 4 CyA - Borrado de comentarios mediante un dfa 
-// Autor: Christian Jesús Pérez Hernández
-// Correo: alu0101030531@ull.edu.es
-// Fecha: 14/10/2019
-// Archivo main.cpp: Utiliza la clase delete_comments para eliminar los comentarios de un fichero 
-//                     
-//                 
-// Referencias: 
-//                    Enunciado de la práctica: https://campusvirtual.ull.es/1920/mod/assign/view.php?id=103940
-// Historial de revisiones
-//                    14/10/2019 - Creación del código
-
+/**
+  Grado en Ingeniería Informática
+   Asignatura: Computabilidad y Algoritmia (CyA)
+   Curso: 2º 
+   Práctica 6 CyA - Automata finito determinista
+   Autor: Christian Jesús Pérez Hernández
+   Correo: alu0101030531@ull.edu.es
+   Fecha: 27/10/2019
+   Archivo main.cpp: Inicializa un dfa mediante un fichero para obtener un fichero dot que permita la visualización
+                     gráfica del dfa 
+                       
+                   
+   Referencias: 
+                      Enunciado de la práctica: https://campusvirtual.ull.es/1920/mod/assign/view.php?id=103940
+   Historial de revisiones
+                      27/10/2019 - Creación del código
+*/
 
 
 #include <iostream>
@@ -21,11 +23,13 @@
 
 #include "dfa.h"
 
+/** Muestra el modo de uso */
 void showinfo() {
   std::cout << "Modo de empleo: ./DFA2dot input.dfa output.gv\n"
   "Pruebe ’DFA2dot --help’ para más información.\n";
 }
 
+/** Muestra el modo de uso avanzado */
 void showhelpinfo() {
   std::cout << " --> input.dfa: fichero que define un dfa\n"
   " --> output.gv: fichero DOT con el diagrama de transiciones del DFA\n";

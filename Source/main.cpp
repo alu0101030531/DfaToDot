@@ -16,20 +16,39 @@
 
 
 #include <iostream>
+#include <fstream>
+#include <cstring>
 
-#include "delete_comments.h"
+#include "dfa.h"
+
+void showinfo() {
+  std::cout << "Modo de empleo: ./DFA2dot input.dfa output.gv\n"
+  "Pruebe ’DFA2dot --help’ para más información.\n";
+}
+
+void showhelpinfo() {
+  std::cout << " --> input.dfa: fichero que define un dfa\n"
+  " --> output.gv: fichero DOT con el diagrama de transiciones del DFA\n";
+}
 
 int main(int argc, char* argv[]) {
-  if(argc != 3)                     // Si se introducen un número de argumentos distintos muestra el mensaje
-    std::cout << "MODO DE USO: ./CommentDeleter in.txt out.txt\n"
-    "in.txt es el fichero con los comentarios a eliminar\n"
-    "out.txt es el fichero sin los comentarios\n";
-  else {
-    std::ifstream dfa_file("comment.dfa");    // Fichero para inicializar el dfa
-    if (dfa_file.is_open()) {
-     DeleteComments(dfa_file,argv[1], argv[2]);
+  switch (argc) {
+    case 0:
+    case 1:
+      showinfo();
+      break;
+    case 2:
+      if(strcmp("--help", argv[1]) == 0)
+        showhelpinfo();
+    case 3:
+    std::ifstream dfa_file(argv[1]);
+    std::ofstream out(argv[2]);
+    if (dfa_file.is_open() && out.is_open()) {
+      Dfa automata(dfa_file);
+      automata.dfaToDot(out);
     }
      dfa_file.close();
+     out.close();
   }
 }
 

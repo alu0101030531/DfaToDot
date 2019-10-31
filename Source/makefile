@@ -1,4 +1,4 @@
-program_NAME := CommentDeleter
+program_NAME := DFA2DOT
 program_CXX_HEADERS := $(../HEADERS1/wildcard	*.hpp)
 program_C_SRCS := $(wildcard *.c)
 program_CXX_SRCS = $(wildcard *.cpp)
@@ -23,5 +23,7 @@ $(program_NAME): $(program_OBJS)
 clean:
 	rm -f $(program_NAME)
 	rm -f	$(program_OBJS)
+	rm -f *.dfa
+	rm -f *.gv
     
 distclean: clean
